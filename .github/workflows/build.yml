@@ -1,0 +1,35 @@
+name: Build
+
+on: 
+  push:
+
+jobs:
+  Build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt-hotspot'
+          java-version: '8'
+          java-package: 'jdk'
+          
+      - run: ./gradlew build
+
+      - name: Archive ALL jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: BON-2.4.0.CUSTOM-all.jar
+          path: build/libs/BON-2.4.0.CUSTOM-all.jar
+
+      - name: Archive BIN jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: BON-2.4.0.CUSTOM-bin.jar
+          path: build/libs/BON-2.4.0.CUSTOM-bin.jar
