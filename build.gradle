@@ -9,10 +9,11 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = '2.5.0.1'
+version = '2.5.0.2'
 group = 'io.github.mjaroslav' // This custom distribution fork, original group: com.github.parker8283
 archivesBaseName = 'BON'
 
@@ -21,13 +22,13 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.ow2.asm:asm-debug-all:5.0.4'
-    implementation 'com.google.guava:guava:18.0'
-    implementation 'net.sf.jopt-simple:jopt-simple:4.9'
+    api 'org.ow2.asm:asm-debug-all:5.0.4'
+    api 'com.google.guava:guava:18.0'
+    api 'net.sf.jopt-simple:jopt-simple:4.9'
 	
-    implementation 'com.google.code.gson:gson:2.7'
-    implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'org.apache.commons:commons-lang3:3.7'
+    api 'com.google.code.gson:gson:2.7'
+    api 'net.sf.trove4j:trove4j:3.0.3'
+    api 'org.apache.commons:commons-lang3:3.7'
 }
 
 // Relace this bullshit
