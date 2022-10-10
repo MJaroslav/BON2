@@ -12,7 +12,7 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-version = '2.5.0.0'
+version = '2.5.0.1'
 group = 'io.github.mjaroslav' // This custom distribution fork, original group: com.github.parker8283
 archivesBaseName = 'BON'
 
@@ -68,9 +68,7 @@ artifacts {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
-            artifact shadowJar
-            artifact sourcesJar
+            from components.java
         }
     }
 }
